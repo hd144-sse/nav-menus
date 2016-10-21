@@ -1,0 +1,83 @@
+* {
+/* -- 
+    Make sure that added padding doesn't expand the elements.
+-- */
+    box-sizing: border-box; 
+}
+
+
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #444444;
+}
+
+.container {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.container ul li {
+    display: inline;
+}
+
+.container ul li a {
+    
+/* -- 
+    Turn links into block-level 
+    elements so you can use >>width<< property 
+    on <a> tag. 
+-- */
+    display: block;
+    float: left;
+    
+    /*width: 25%;*/
+    margin: 0 1px 0 0;
+    padding: 0.5rem;
+    
+/* --  
+    Have calc() function calculating your width by 
+    subtracting the value of added margin.
+    Reference: https://developer.mozilla.org/en/docs/Web/CSS/calc
+-- */
+    width: calc(25% - 1px);
+    
+    text-align: center;
+    text-decoration: none;
+    background-color: cornflowerblue;
+    color: white;
+    
+}
+
+.container ul li a:hover {
+    background-color: black;   
+}
+
+
+/* -- 
+    Just rounding corners 
+    of the first and last link.
+-- */
+.container ul li:first-of-type a {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.container ul li:last-of-type a {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+
+/* -- Clear the floated links on <ul> -- */
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: left;
+}
